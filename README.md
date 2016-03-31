@@ -1,3 +1,7 @@
+## envok
+
+Use Joi to validate/assert your required environment
+
 Usage:
 
 ```
