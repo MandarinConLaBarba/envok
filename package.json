@@ -1,0 +1,15 @@
+{
+  "name": "envok",
+  "version": "1.0.0",
+  "description": "Use Joi validation to make sure your environment is OK",
+  "main": "index.js",
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "author": "Mandarin Drummond",
+  "dependencies": {
+    "camelize": "^1.0.0",
+    "joi": "^6.4.1",
+    "underscore": "^1.8.3"
+  }
+}
