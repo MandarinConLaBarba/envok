@@ -17,7 +17,7 @@ const _check = (schema) => {
   formattedCfg = {};
 
   envKeys.forEach((k, v) => {
-    formattedCfg[camelize(k.toLowerCase())] = v;
+    formattedCfg[camelize(k.toLowerCase())] = validatedCfg[k];
   });
 
   return formattedCfg
