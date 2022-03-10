@@ -1,6 +1,6 @@
 {
   "name": "envok",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Use Joi validation to make sure your environment is OK",
   "main": "index.js",
   "engines": {

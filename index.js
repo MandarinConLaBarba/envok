@@ -8,13 +8,26 @@ const _check = (schema) => {
     envKeys = Object.keys(schema),
     envCfg = _.pick(env, envKeys);
 
-  let result = Joi.validate(envCfg, schema);
-  if (result.error) {
-    throw new Error("Environment var validation exception: " + result.error);
-  }
 
-  let validatedCfg = result.value,
-  formattedCfg = {};
+  let validatedCfg = {};
+
+  envKeys.forEach((k) => {
+    const singleVarSchema = {};
+    singleVarSchema[k] = schema[k];
+    const singleVarCfg = {};
+    singleVarCfg[k] = envCfg[k];
+    console.log(`Validating env var ${k}..`);
+    let result = Joi.validate(singleVarCfg, singleVarSchema);
+
+    if (result.error) {
+      throw new Error("Environment var validation exception: " + result.error);
+    }
+
+    validatedCfg = { ...validatedCfg, ...result.value }
+
+  })
+
+  let formattedCfg = {};
 
   envKeys.forEach((k, v) => {
     formattedCfg[camelize(k.toLowerCase())] = validatedCfg[k];
