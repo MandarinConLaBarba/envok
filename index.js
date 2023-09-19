@@ -16,7 +16,6 @@ const _check = (schema) => {
     singleVarSchema[k] = schema[k];
     const singleVarCfg = {};
     singleVarCfg[k] = envCfg[k];
-    console.log(`Validating env var ${k}..`);
     let result = Joi.validate(singleVarCfg, singleVarSchema);
 
     if (result.error) {
