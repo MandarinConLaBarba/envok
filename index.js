@@ -1,7 +1,7 @@
 'use strict'
-var Joi = require('joi'),
-  _ = require('underscore'),
-  camelize = require('camelize');
+const Joi = require('joi'),
+    _ = require('underscore'),
+    camelize = require('camelize');
 
 const _check = (schema) => {
   const env = process.env,
@@ -12,11 +12,13 @@ const _check = (schema) => {
   let validatedCfg = {};
 
   envKeys.forEach((k) => {
-    const singleVarSchema = {};
-    singleVarSchema[k] = schema[k];
-    const singleVarCfg = {};
-    singleVarCfg[k] = envCfg[k];
-    let result = Joi.validate(singleVarCfg, singleVarSchema);
+    const singleVarSchema = Joi.object({
+      [k]: schema[k]
+    });
+    const singleVarCfg = {
+      [k]: envCfg[k]
+    };
+    let result = singleVarSchema.validate(singleVarCfg);
 
     if (result.error) {
       throw new Error("Environment var validation exception: " + result.error);
