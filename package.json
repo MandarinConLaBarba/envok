@@ -1,15 +1,25 @@
 {
   "name": "envok",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Use Joi validation to make sure your environment is OK",
   "main": "index.js",
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=18.0.0"
   },
   "author": "Mandarin Drummond",
+  "keywords": [
+    "environment",
+    "validator"
+  ],
   "dependencies": {
-    "camelize": "^1.0.0",
-    "joi": "^6.4.1",
-    "underscore": "^1.8.3"
+    "camelize": "^1.0.1",
+    "joi": "^17.12.2",
+    "underscore": "^1.13.6"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "scripts": {
+    "test": "jest"
   }
 }
